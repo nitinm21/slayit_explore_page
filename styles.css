@@ -1,3 +1,9 @@
+:root {
+    --move-duration: 15s;  /* Time for one blob to move up */
+    --blob-delay: 5s;     /* Delay between blue and green */
+    --cycle-gap: 0s;  /* Control the delay before next cycle starts */
+}
+
 body {
     margin: 0;
     font-family: Inter, sans-serif;
@@ -31,7 +37,7 @@ body {
         rgba(0, 70, 189, 0.3) 40%,
         rgba(0, 70, 189, 0) 70%
     );
-    animation: blobMoveRight 20s infinite;
+    animation: blobMoveRight var(--move-duration) calc(var(--move-duration) + var(--blob-delay)) infinite;
 }
 
 .gradient-left {
@@ -41,43 +47,43 @@ body {
     height: 150vh;
     background: radial-gradient(
         circle at center,
-        rgba(64, 106, 255, 0.6) 0%,
-        rgba(86, 123, 255, 0.3) 40%,
-        rgba(86, 123, 255, 0) 70%
+        rgba(10, 40, 133, 0.6) 0%,
+        rgba(0, 70, 189, 0.3) 40%,
+        rgba(0, 70, 189, 0) 70%
     );
-    animation: blobMoveLeft 20s infinite;
-    animation-delay: 10s;
+    animation: blobMoveLeft var(--move-duration) calc(var(--move-duration) + var(--blob-delay)) infinite;
+    animation-delay: var(--blob-delay);
 }
 
 @keyframes blobMoveRight {
-    0%, 100% {
+    0% {
         transform: translateY(100%);
         opacity: 0;
     }
-    5% {
+    10% {
         opacity: 1;
     }
-    45% {
+    90% {
         opacity: 1;
     }
-    50%, 95% {
+    100% {
         transform: translateY(-100%);
         opacity: 0;
     }
 }
 
 @keyframes blobMoveLeft {
-    0%, 100% {
+    0% {
         transform: translateY(100%);
         opacity: 0;
     }
-    5% {
+    10% {
         opacity: 1;
     }
-    45% {
+    90% {
         opacity: 1;
     }
-    50%, 95% {
+    100% {
         transform: translateY(-100%);
         opacity: 0;
     }
