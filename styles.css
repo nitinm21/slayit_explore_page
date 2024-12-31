@@ -1,6 +1,6 @@
 :root {
     --move-duration: 15s;  /* Time for one blob to move up */
-    --blob-delay: 5s;     /* Delay between blue and green */
+    --blob-delay: 0s;     /* Delay between blue and green */
     --cycle-gap: 0s;  /* Control the delay before next cycle starts */
 }
 
